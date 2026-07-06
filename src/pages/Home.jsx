@@ -38,6 +38,7 @@ import {
 } from 'lucide-react'
 import LiquidEther from './LiquidEther'
 import TextReveal, { textRevealEase } from './TextReveal'
+import { useAuth } from '../hooks/useAuth'
 
 const previewStats = [
   { label: 'Health Score', value: '82', delta: '+4%' },
@@ -256,6 +257,13 @@ function FlowRow({ items }) {
 }
 
 export default function Home() {
+  // Determines whether the hero CTA should send an already-logged-in user
+  // straight to their dashboard instead of back through registration.
+  const { user } = useAuth()
+  const isAuthenticated = Boolean(user)
+  const primaryCtaTo = isAuthenticated ? '/dashboard' : '/register'
+  const primaryCtaLabel = isAuthenticated ? 'Go to Dashboard' : 'Get Started'
+
   return (
     <div className="bg-white text-navy">
       <section className="relative min-h-screen flex flex-col overflow-hidden">
@@ -317,10 +325,10 @@ export default function Home() {
 
             <AnimatedCard className="flex flex-col sm:flex-row items-center justify-center gap-4" delay={0.24}>
               <Link
-                to="/register"
+                to={primaryCtaTo}
                 className="w-56 sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-sky-200 transition-colors group"
               >
-                Get Started
+                {primaryCtaLabel}
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
               <Link
