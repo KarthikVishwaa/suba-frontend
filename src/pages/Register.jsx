@@ -14,7 +14,7 @@ import {
   AlertCircle,
   HeartPulse,
 } from 'lucide-react'
-import WelcomeOverlay from '../components/Welcomeoverlay'
+import WelcomeOverlay from "../components/WelcomeOverlay";
 
 export default function Register() {
   const { register, user } = useAuth()
