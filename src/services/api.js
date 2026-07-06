@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://suba-backend-cl2r.onrender.com',
+  baseURL: 'https://suba-backend-cl2r.onrender.com/api/v1',
 })
 
 api.interceptors.request.use((config) => {
