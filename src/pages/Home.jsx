@@ -419,7 +419,7 @@ export default function Home() {
 
       <section className="max-w-6xl mx-auto px-6 py-20">
         <SectionIntro eyebrow="Problem Statement" title="Why SUBA Health?" center>
-          Millions of people receive medical reports but struggle to understand them. SUBA Health simplifies healthcare by using AI to analyze reports and present understandable insights.
+          Millions of people receive medical report but struggle to understand them. SUBA Health simplifies healthcare by using AI to analyze reports and present understandable insights.
         </SectionIntro>
         <div className="grid md:grid-cols-4 gap-4">
           {problemPoints.map((point, index) => (
